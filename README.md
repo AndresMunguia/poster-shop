@@ -4,7 +4,7 @@ Source code for the app:
 (https://vuejsdevelopers.com/courses/first-vue-app?utm_source=gitlab-vjd)
 
 
-### Desciption
+### Description
 
 This repository was create to dockerise a node.js app and automate the image building process as well as the publishing of it in DockerHub. There is a ci pipeline which merges any changes pushed to 'testing' branch in to the 'master' branch, also every time a change is pushed, a new image of the app its created and published to DockerHub. 
 
