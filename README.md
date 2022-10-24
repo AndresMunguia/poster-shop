@@ -34,6 +34,53 @@ EXPOSE 3000
 
  ```
  
+#### CI Pipeline
+
+This is the "Yaml" script used to configure the Github Action that automates the CI process.
+
+Here I set the events that will trigger this action, basically a new image will be created everytime there is a change pushed to the 'master' or 'testing' branches as well if there is a pull request on any of this two.
+
+```
+
+name: Docker Image CI
+
+on:
+  push:
+    branches:
+     - master
+     - testing
+  pull_request:
+    branches:
+     - master
+     - testing
+	 
+```
+
+Below is the workflow for this pipeline, first it will build the image from /root, tag it with "poster-shop:date" and proceed to the next step which is publishing the image on my Dockerhub repository.
+
+```
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag poster-shop:$(date +%s)
+    - uses: mr-smithers-excellent/docker-build-push@v5
+      name: Build & push Docker image
+      with:
+       image: andresmunguia/poster-shop
+       tags: v1, latest
+       registry: docker.io
+       dockerfile: Dockerfile
+       username: ${{ secrets.DOCKER_USERNAME }}
+       password: ${{ secrets.DOCKER_PASSWORD }}
+
+```
+ 
 #### Intallation with Docker
 
 This image is hosted on a DockerHub public repository so it can be easily downloaded and executed using the commands bellow:
