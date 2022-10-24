@@ -75,24 +75,28 @@ Ensure [Node.js  >=4](https://nodejs.org/en/download/), [NPM](https://docs.npmjs
         cd /path/to/install/location
         
         git clone https://github.com/[your_username]/poster-shop.git
+		
         ```
 
 2. Change directory into the local clone of the repository
 
     ```
     cd poster-shop
+	
     ```
 
 3. Install dependencies
 
     ```
     npm install
+	
     ```
     
 4. Start project
 
     ```
     npm run serve
+	
     ```
 
 5. Your site will be available at *localhost:3000*.
@@ -106,4 +110,5 @@ Here are some common mistakes people make, check these before filing an issue:
 
 ```
 node -v
+
 ```
