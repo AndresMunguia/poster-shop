@@ -12,6 +12,7 @@ This repository was create to dockerise a node.js app and automate the image bui
 This image is being built using Docker multi-stages to make it really light. Builder downloads required dependencies on "node v18", then our actual image (runner) is built in a lite version of "node v10.15.2" with a "alpine" linux distro and its listening to "port 3000".
 
  ```
+ 
  # First Stage
 
 FROM node:18 as builder
@@ -40,13 +41,15 @@ This image is hosted on a DockerHub public repository so it can be easily downlo
  ```
 
  $  docker pull andresmunguia/poster-shop:latest
+ 
  ```
  
- then
+ Then:
  
  ```
  
  $  docker run -d -p 3000:3000 andresmunguia/poster-shop
+ 
  ```
  
  And you can access the app using the link below:
@@ -54,6 +57,7 @@ This image is hosted on a DockerHub public repository so it can be easily downlo
  ```
  
  http://localhost:3000
+ 
  ```
 
 #### Pre-installation WITHOUT DOCKER
@@ -98,7 +102,7 @@ Ensure [Node.js  >=4](https://nodejs.org/en/download/), [NPM](https://docs.npmjs
 Here are some common mistakes people make, check these before filing an issue:
 
 - `EADDRINUSE :::3000`. You already have another application using port 3000. Either end it, or change manually set the `PORT` environment variable to resolve the conflict e.g. `3001`
-- Ensure you have a version of Node >= 8
+- Ensure you have a version of Node >= 18
 
 ```
 node -v
