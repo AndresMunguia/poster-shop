@@ -15,5 +15,5 @@ FROM alpine as runner
 WORKDIR /app
 
 COPY --from=builder /app .
-CMD ["server.js"]
+CMD ["node", "app/server.js"]
 EXPOSE 3000
