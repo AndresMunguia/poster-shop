@@ -1,4 +1,4 @@
-### Docker file without stages.
+## Docker file without stages.
 
 FROM node:18
 WORKDIR /app
