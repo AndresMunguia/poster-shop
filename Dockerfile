@@ -8,7 +8,7 @@ RUN npm install
 COPY . .
 
 
-## Second Stage
+# Second Stage
 
 FROM node:10.15.2-alpine as runner
 WORKDIR /app
