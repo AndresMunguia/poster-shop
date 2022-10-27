@@ -24,7 +24,7 @@ jobs:
       name: Build & push Docker image
       with:
        image: andresmunguia/poster-shop
-       tags: v1, latest
+       tags: $GIT_COMMIT, latest
        registry: docker.io
        dockerfile: Dockerfile
        username: ${{ secrets.DOCKER_USERNAME }}
