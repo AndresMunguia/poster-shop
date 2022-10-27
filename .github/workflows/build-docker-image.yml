@@ -24,7 +24,7 @@ jobs:
       name: Build & push Docker image
       with:
        image: andresmunguia/poster-shop
-       tags: $(date), latest
+       tags: $(date +'%Y-%m-%d_%H-%M'), latest
        registry: docker.io
        dockerfile: Dockerfile
        username: ${{ secrets.DOCKER_USERNAME }}
